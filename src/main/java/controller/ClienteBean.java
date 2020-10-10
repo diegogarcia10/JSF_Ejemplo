@@ -16,18 +16,7 @@ import java.util.*;
 @RequestScoped
 public class ClienteBean {
     public List<Cliente> obtenerClientes(){
-        /*
-        List<Cliente> listaclientes=new ArrayList<>();
-        Cliente c1= new Cliente();
-        c1.setId(1L);
-        c1.setNombres("Diego");
-        c1.setApellidos("Ochoa");
-        c1.setDireccion("San Salvador");
-        c1.setEmail("ddjochoa10@gmail.com");
-        listaclientes.add(c1);
-        listaclientes.add(c1);
-        listaclientes.add(c1);
-        return listaclientes;*/
+
         ClienteDAO clienteDAO = new ClienteDAO();
         return clienteDAO.obtenerClientes();
     }
