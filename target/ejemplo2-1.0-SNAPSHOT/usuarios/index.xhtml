@@ -18,35 +18,29 @@
 
         <div class="text-center">
             <h:form enctype="multipart/form-data">
-
+                <h:commandButton styleClass="btn btn-success my-3" action="#{usuarioBean.nuevo()}" value="Nuevo Usuario"></h:commandButton>
                 <h:dataTable styleClass="table" headerClass="table-dark" value="#{usuarioBean.obtenerUsuarios()}" var="usuario" border="1">
                     <h:column >
                         <f:facet name="header" >Id</f:facet>
                         <h:outputText value="#{usuario.id}"></h:outputText>
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Usuario</f:facet>
+                        <f:facet name="header">Nombre de usuario</f:facet>
                         <h:outputText value="#{usuario.username}"></h:outputText>
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Apellidos</f:facet>
+                        <f:facet name="header">Contraseña</f:facet>
                         <h:outputText value="#{usuario.password}"></h:outputText>
                     </h:column>
-
                     <h:column>
                         <f:facet name="header">Acciones</f:facet>
-                        <h:inputFile  id="file-id"   required="true"
-                                      requiredMessage="Please upload a file" alt="upload file"></h:inputFile>
+                        <h:commandButton styleClass="btn btn-primary" action="#{usuarioBean.editar(usuario.id)}" value="Editar"></h:commandButton>
+                        <h:commandButton styleClass="btn btn-danger ml-3" action="#{usuarioBean.eliminar(usuario.id)}" value="Eliminar"></h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
         </div>
     </div>
-
-
-
-
-
 
     <h:outputScript name="bootstrap/js/jquery-3.5.1.js" />
     <h:outputScript name="bootstrap/js/bootstrap.js" />
