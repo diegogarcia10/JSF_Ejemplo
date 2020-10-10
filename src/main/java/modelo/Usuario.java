@@ -1,6 +1,7 @@
 package modelo;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "usuarios")
@@ -12,7 +13,27 @@ public class Usuario {
     @Column
     private String username;
     @Column
-    private  String password;
+    private String password;
+    @Column
+    private Date fechaRegistro;
+    @Column
+    private Date fechaActualizar;
+
+    public Date getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public Date getFechaActualizar() {
+        return fechaActualizar;
+    }
+
+    public void setFechaActualizar(Date fechaActualizar) {
+        this.fechaActualizar = fechaActualizar;
+    }
 
     public Long getId() {
         return id;

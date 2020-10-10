@@ -35,7 +35,7 @@ public class ClienteBean {
     public String actualizar(Cliente cliente) {
         //guarda la fecha de actualizacion
 
-        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        SimpleDateFormat isoFormat = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss");
         isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         Date date=new Date();
         System.out.print(date);
@@ -54,7 +54,7 @@ public class ClienteBean {
     public String eliminar(Long id) {
         ClienteDAO clienteDAO = new ClienteDAO();
         clienteDAO.eliminar(id);
-        System.out.println("Cliente eliminado..");
+        System.out.println("Cliente eliminado");
         return "/faces/index.xhtml";
     }
     public String nuevo() {

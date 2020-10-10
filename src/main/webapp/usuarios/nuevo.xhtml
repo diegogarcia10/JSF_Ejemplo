@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+    <title>Nuevo usuario</title>
+    <h:outputStylesheet name="bootstrap/css/bootstrap.css"/>
+    <h:outputStylesheet name="bootstrap/css/bootstrap-grid.css"/>
+    <h:outputStylesheet name="bootstrap/css/bootstrap-reboot.css"/>
+
+</h:head>
+<h:body>
+    <div class="container ">
+        <br/><br/><br/>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h6 class="text-center">Nuevo Usuario</h6>
+                <div class="">
+                    <h:form >
+                        <div class="form-group">
+                            <div class="">
+                                <h:outputLabel styleClass="control-label" value="Nombre de usuario: "></h:outputLabel>
+                                <h:inputText a:required="true" a:placeholder="Ingrese el nombre de usuario"  value="#{usuario.username}" styleClass="form-control"></h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <h:outputLabel styleClass="control-label" value="Contraseña: "></h:outputLabel>
+                                <h:inputText a:required="true" a:placeholder="Ingrese la contraseña"   value="#{usuario.password}" styleClass="form-control"></h:inputText>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="">
+                                <h:commandButton action="#{usuarioBean.guardar(usuario)}" styleClass="btn btn-primary" value="Crear"></h:commandButton>
+                                <h:link outcome="index" value="Regresar" styleClass="btn btn-warning ml-3" ></h:link>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </div>
+    <h:outputScript name="bootstrap/js/jquery-3.5.1.js" />
+    <h:outputScript name="bootstrap/js/bootstrap.js" />
+    <h:outputScript name="bootstrap/js/bootstrap.bundle.js" />
+</h:body>
+</html>

@@ -16,7 +16,6 @@ public class ClienteDAO {
         entity.getTransaction().begin();
         entity.persist(cliente);
         entity.getTransaction().commit();
-
     }
 
 
