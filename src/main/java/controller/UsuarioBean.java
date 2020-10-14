@@ -7,7 +7,9 @@ import modelo.Usuario;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,20 +45,23 @@ public class UsuarioBean {
         System.out.println("Usuario eliminado");
         return "/faces/usuarios/index.xhtml";
     }
-    public String nuevo() {
+    public void nuevo() throws IOException {
         Usuario c= new Usuario();
         Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         sessionMap.put("usuario", c);
-        return  "/faces/usuarios/nuevo.xhtml";
+        ExternalContext context= FacesContext.getCurrentInstance().getExternalContext();
+        context.redirect("nuevo.xhtml");
+
     }
 
-    public String guardar (Usuario usuario) {
+    public void guardar (Usuario usuario) throws IOException {
         //guarda la fecha de registro
         Date fechaActual= new Date();
         usuario.setFechaRegistro(new java.sql.Date(fechaActual.getTime()));
         UsuarioDAO usuarioDAO= new UsuarioDAO();
         usuarioDAO.guardar(usuario);
-        return  "/faces/usuarios/index.xhtml";
+        ExternalContext context= FacesContext.getCurrentInstance().getExternalContext();
+        context.redirect("index.xhtml");
     }
 
     public String actualizar(Usuario usuario) {

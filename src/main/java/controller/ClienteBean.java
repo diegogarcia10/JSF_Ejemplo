@@ -2,19 +2,28 @@ package controller;
 
 import dao.ClienteDAO;
 import modelo.Cliente;
-import sun.rmi.runtime.Log;
 
 
+import javax.enterprise.context.SessionScoped;
+
+
+import javax.faces.annotation.ManagedProperty;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+
+
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@ManagedBean(name="clienteBean")
+
+
+@ManagedBean(name = "clienteBean")
 @RequestScoped
-public class ClienteBean {
+public class ClienteBean{
+
     public List<Cliente> obtenerClientes(){
 
         ClienteDAO clienteDAO = new ClienteDAO();
